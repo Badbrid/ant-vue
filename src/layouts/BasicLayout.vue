@@ -2,7 +2,6 @@
   <div>
     <Header />
     <SiderMenu />
-    <router-view></router-view>
     <Footer />
   </div>
 </template>
@@ -10,7 +9,7 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
-import SiderMemu from './SiderMenu'
+import SiderMenu from './SiderMenu'
 export default {
   components: {
     // eslint-disable-next-line vue/no-unused-components
@@ -18,7 +17,7 @@ export default {
     // eslint-disable-next-line vue/no-unused-components
     Footer,
     // eslint-disable-next-line vue/no-unused-components
-    SiderMemu
+    SiderMenu
   }
 }
 </script>

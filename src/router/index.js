@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import UserLayout from "../layouts/UserLayout";
+import NotFound from "../views/404";
 
 Vue.use(VueRouter);
 
@@ -42,18 +43,18 @@ const routes = [
         path: "/dashboard",
         name: "dashboard",
         component: {
-          render: h => h("router-views"),
-          children: [
-            {
-              path: "/dashboard/analysis",
-              name: "Analysis",
-              component: () =>
-                import(
-                  /* webpackChunkName: "dashboard" */ "../views/Dashboard/Analysis"
-                )
-            }
-          ]
-        }
+          render: h => h("router-views")
+        },
+        children: [
+          {
+            path: "/dashboard/analysis",
+            name: "analysis",
+            component: () =>
+              import(
+                /* webpackChunkName: "dashboard" */ "../views/Dashboard/Analysis"
+              )
+          }
+        ]
       },
       // forms
       {
@@ -106,6 +107,11 @@ const routes = [
         ]
       }
     ]
+  },
+  {
+    path: "*",
+    name: "404",
+    component: NotFound
   }
 ];
 

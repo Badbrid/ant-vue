@@ -31,43 +31,55 @@ const routes = [
   },
   {
     path: "/",
+    name: "index",
+    redirect: "/dashboard/analysis",
     component: () =>
       import(/* webpackChunkName: "layout" */ "../layouts/BasicLayout"),
     children: [
+      // {
+      //   path: "/",
+      //   redirect: "/dashboard/analysis"
+      // },
       // dashboard
+      // {
+      //   path: "/dashboard",
+      //   name: "dashboard",
+      //   redirect: "/dashboard/analysis",
+      //   component: {
+      //     render: h => h("router-views")
+      //   },
+      //   // component: () =>
+      //   //   import(/* webpackChunkName: "layout" */ "../layouts/BasicLayout"),
+      //   children: [
+      //     {
+      //       path: "/dashboard/analysis",
+      //       name: "analysis",
+      //       component: () =>
+      //         import(/* webpackChunkName: "dashboard" */ "../views/Dashboard/Analysis.vue")
+      //     }
+      //   ]
+      // },
       {
-        path: "/",
-        redirect: "/dashboard/analysis"
-      },
-      {
-        path: "/dashboard",
-        name: "dashboard",
-        component: {
-          render: h => h("router-views")
-        },
-        children: [
-          {
-            path: "/dashboard/analysis",
-            name: "analysis",
-            component: () =>
-              import(
-                /* webpackChunkName: "dashboard" */ "../views/Dashboard/Analysis"
-              )
-          }
-        ]
+        path: "/dashboard/analysis",
+        name: "analysis",
+        component: () =>
+          import(/* webpackChunkName: "dashboard" */ "../views/Dashboard/Analysis.vue")
       },
       // forms
       {
         path: "/form",
         name: "form",
-        component: { render: h => h("router-views") },
+        // redirect: "/form/basic-form",
+        // component: { render: h => h("router-views") },
+        component: () =>
+              import(/* webpackChunkName: "form" */ "../views/Forms/BasicForm"),
         children: [
-          {
-            path: "/form/basic-form",
-            name: "basicform",
-            component: () =>
-              import(/* webpackChunkName: "form" */ "../views/Forms/BasicForm")
-          },
+          // {
+          //   path: "/form/basic-form",
+          //   name: "basicform",
+          //   component: () =>
+          //     import(/* webpackChunkName: "form" */ "../views/Forms/BasicForm")
+          // },
           {
             path: "/form/step-form",
             name: "StepForm",

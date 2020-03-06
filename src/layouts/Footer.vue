@@ -1,6 +1,6 @@
 <template>
   <div>
-    footer
+            Ant Design vue pro ©2020 Created by Mob
   </div>
 </template>
 
